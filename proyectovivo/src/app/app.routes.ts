@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/inbox',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -15,4 +15,9 @@ export const routes: Routes = [
     path: 'inbox',
     loadComponent: () => import('./inbox/inbox.page').then( m => m.InboxPage)
   },
+  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  },
+
 ];

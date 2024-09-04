@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Formulario de Login -->
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <ion-item>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <!-- Mensaje de error para el campo de correo -->
+    <ion-item *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      <ion-text color="danger">Ingrese un correo válido.</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <!-- Mensaje de error para el campo de contraseña -->
+    <ion-item *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+      <ion-text color="danger">La contraseña debe tener al menos 8 caracteres.</ion-text>
+    </ion-item>
+
+    <!-- Botón para iniciar sesión -->
+    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</ion-button>
+  </form>
+
+  <!-- GIF de Nubes -->
+  <div class="login-background">
+    <img src="assets/imgs/Nubes.webp" alt="Fondo de nubes" />
+  </div>
+</ion-content>
